@@ -1,0 +1,17 @@
+.section {
+  border: 1px solid black;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+  cursor: pointer;
+  transition: 0 9s linear;
+  border-radius: 11px;
+}
+.text {
+  color: rgb(0, 0, 0);
+}

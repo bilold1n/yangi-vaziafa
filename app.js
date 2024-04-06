@@ -1,20 +1,19 @@
 //random background
-let section = document.querySelector("#section");
-function randomcolor() {
-  let randomrang1 = Math.floor(Math.random() * 255);
-  let randomrang2 = Math.floor(Math.random() * 255);
-  let randomrang3 = Math.floor(Math.random() * 255);
+let btn = document.querySelector(".container");
+let id = document.querySelector("#id");
+let simbols = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "a", "b", "c", "d", "e", "f"];
+function randomColor() {
+  let hex = "#";
+  for (let i = 0; i < 6; i++) {
+    let index = Math.floor(Math.random() * 15);
+    hex += simbols[index];
+  }
+  return hex;
+}
+btn.addEventListener("click", () => {
   let deg = Math.floor(Math.random() * 180);
-  return `linear-gradient(${deg}deg,rgb(${randomrang1},${randomrang3},${randomrang2},${randomrang1}),rgb( ${randomrang2},${randomrang1},${randomrang2},${randomrang3}))`;
-}
-function color() {
-  let randomrang1 = Math.floor(Math.random() * 255);
-  let randomrang2 = Math.floor(Math.random() * 255);
-  let randomrang3 = Math.floor(Math.random() * 255);
-  return `rgb(${randomrang1},${randomrang2},${randomrang3})`;
-}
-function clicksection() {
-  section.style.backgroundColor = color();
-  section.style.background = randomcolor();
-}
-section.setAttribute("onclick", "clicksection()");
+  let gradiend = `linear-gradient(${deg}deg,${randomColor()},${randomColor()},${randomColor()})`;
+  document.body.style.backgroundColor = randomColor();
+  document.body.style.backgroundImage = gradiend;
+  id.textContent = gradiend;
+});
